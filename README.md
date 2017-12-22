@@ -7,7 +7,8 @@ Started with $1000 in October, there were some times that this made about $40/da
 Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin
 
 ## Setup
-`pip install grequests`  
+1. `pip install grequests`
+2. Add the API keys in the key file under .keys
 Triangular: Modify the values of `exchange`  
 Exchange: Modify the values of `exchangeA` and `exchangeB`
 
