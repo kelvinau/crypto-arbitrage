@@ -245,7 +245,7 @@ class CryptoEngineTriArbitrage(object):
         self.start_engine()
 
 if __name__ == '__main__':
-    bittrexExchange = {
+    exchange = {
         'exchange': 'bittrex',
         'keyFile': '../.keys/bittrexkey',
         'tickerPairA': 'BTC-ETH',
@@ -255,6 +255,6 @@ if __name__ == '__main__':
         'tickerB': 'ETH',
         'tickerC': 'LTC'
     }    
-    #engine = CryptoEngineTriArbitrage(bittrexExchange, True)
-    engine = CryptoEngineTriArbitrage(bittrexExchange)
+    #engine = CryptoEngineTriArbitrage(exchange, True)
+    engine = CryptoEngineTriArbitrage(exchange)
     engine.run()
