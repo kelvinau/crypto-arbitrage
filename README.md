@@ -9,6 +9,7 @@ Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin
 ## Setup
 1. `pip install grequests`
 2. Add the API keys in the key file under .keys
+3. **IMPORTANT** There is a flag `mock = true` for testing the result in `engine_triangularArbitrage.py` and `engine_exchangeArbitrage.py`. Better to test the current market first before running this with your APIs.
 
 Triangular: Modify the values of `exchange`  
 Exchange: Modify the values of `exchangeA` and `exchangeB`
