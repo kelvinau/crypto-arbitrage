@@ -12,7 +12,7 @@
 MAX       0.02       0.1
 '''
 
-from imports import *
+from mod_imports import *
 
 class ExchangeEngine(ExchangeEngineBase):
     def __init__(self):

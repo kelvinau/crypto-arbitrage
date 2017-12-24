@@ -1,0 +1,28 @@
+{
+    "triangular": {
+        "exchange": "bittrex",
+        "keyFile": "keys/bittrex.key",
+        "tickerPairA": "BTC-ETH",
+        "tickerPairB": "ETH-LTC",
+        "tickerPairC": "BTC-LTC",
+        "tickerA": "BTC",
+        "tickerB": "ETH",
+        "tickerC": "LTC"
+    },
+    "exchange": {
+        "exchangeA": {
+            "exchange": "bittrex",
+            "keyFile": "keys/bittrex.key",
+            "tickerPair": "BTC-ETH",
+            "tickerA": "BTC",
+            "tickerB": "ETH"        
+        },
+        "exchangeB": {
+            "exchange": "bitstamp",
+            "keyFile": "keys/bitstamp.key",
+            "tickerPair": "ethbtc",
+            "tickerA": "btc",
+            "tickerB": "eth"         
+        }
+    }
+}

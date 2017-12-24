@@ -13,7 +13,7 @@ $25,000,000.00 or more traded                      0.000%        0.120%
 $30,000,000.00 or more traded                      0.000%        0.100%
 '''
 
-from imports import *
+from mod_imports import *
 class ExchangeEngine(ExchangeEngineBase):
     def __init__(self):
         self.API_URL = 'https://api.bitfinex.com'

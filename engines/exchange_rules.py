@@ -12,7 +12,7 @@ class CryptoEngineRules:
         self.rule = rule
         self.keyFile = keyFile
         self.checker = RuleChecker()
-        pass
+  
     
     def start_engine(self):
         print 'starting engine...'

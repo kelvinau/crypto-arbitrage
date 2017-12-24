@@ -11,7 +11,6 @@ class ExchangeEngineBase:
         with open(filename) as f:    
             self.key = json.load(f)
             
-            
     @abstractmethod
     def _send_request(self):
         pass

@@ -1,6 +1,9 @@
 import time
 from time import strftime
 import grequests
+import os 
+import sys
+from exchanges.loader import EngineLoader
 
 class CryptoEngineTriArbitrage(object):
     def __init__(self, exchange, mock=False):
@@ -9,12 +12,8 @@ class CryptoEngineTriArbitrage(object):
         self.minProfitUSDT = 0.3
         self.hasOpenOrder = True # always assume there are open orders first
         self.openOrderCheckCount = 0
-
-        mod = __import__(self.exchange['exchange'])
-        self.engine = mod.ExchangeEngine()
-        self.engine.load_key(self.exchange['keyFile'])
-        
-
+      
+        self.engine = EngineLoader.getEngine(self.exchange['exchange'], self.exchange['keyFile'])
 
     def start_engine(self):
         print strftime('%Y%m%d%H%M%S') + ' starting Triangular Arbitrage Engine...'
@@ -25,14 +24,14 @@ class CryptoEngineTriArbitrage(object):
             try:
                 if not self.mock and self.hasOpenOrder:
                     self.check_openOrder()
-                elif self.check_balance():
+                elif self.check_balance():           
                     bookStatus = self.check_orderBook()
                     if bookStatus['status']:
                         self.place_order(bookStatus['orderInfo'])
             except Exception, e:
                # raise
                print e
-
+            
             time.sleep(self.engine.sleepTime)
     
     def check_openOrder(self):
@@ -106,8 +105,16 @@ class CryptoEngineTriArbitrage(object):
               ]
 
         responses = self.send_request(rs)
-
-        #print responses[0].parsed, responses[1].parsed, responses[2].parsed, 
+        
+        if self.mock:
+            print '{0} - {1}; {2} - {3}; {4} - {5}'.format(
+                self.exchange['tickerPairA'],
+                responses[0].parsed,
+                self.exchange['tickerPairB'],
+                responses[1].parsed,
+                self.exchange['tickerPairC'],
+                responses[2].parsed
+                )
         
         # bid route BTC->ETH->LTC->BTC
         bidRoute_result = (1 / responses[0].parsed['ask']['price']) \
@@ -247,7 +254,7 @@ class CryptoEngineTriArbitrage(object):
 if __name__ == '__main__':
     exchange = {
         'exchange': 'bittrex',
-        'keyFile': '../.keys/bittrexkey',
+        'keyFile': '../keys/bittrex.key',
         'tickerPairA': 'BTC-ETH',
         'tickerPairB': 'ETH-LTC',
         'tickerPairC': 'BTC-LTC',
@@ -255,6 +262,6 @@ if __name__ == '__main__':
         'tickerB': 'ETH',
         'tickerC': 'LTC'
     }    
-    #engine = CryptoEngineTriArbitrage(exchange, True)
-    engine = CryptoEngineTriArbitrage(exchange)
+    engine = CryptoEngineTriArbitrage(exchange, True)
+    #engine = CryptoEngineTriArbitrage(exchange)
     engine.run()
