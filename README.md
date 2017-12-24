@@ -8,15 +8,13 @@ Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin
 
 ## Setup
 1. `pip install grequests`
-2. Add the API keys in the key file under .keys
-3. **IMPORTANT** There is a flag `mock = true` for testing the result in `engine_triangularArbitrage.py` and `engine_exchangeArbitrage.py`. Better to test the current market first before running this with your APIs.
-
-Triangular: Modify the values of `exchange`  
-Exchange: Modify the values of `exchangeA` and `exchangeB`
+2. Rename or copy `.key_sample` files under `keys` to `.key` file, and add the APIs. E.g. Create a file `bittrex.key` **Make sure you don't push any of your APIs.**
+3. Modify `arbitrage_config.json` for any other ticker pairs or exchanges
 
 ## Usage
-Triangular: `python engine_triangularArbitrage.py`  
-Exchange: `python engine_exchangeArbitrage.py`
+Triangular: `python main.py -m triangular`  
+Exchange:   `python main.py -m exchange`  
+Mock mode is enabled by default, which does not place any order and just check and show any arbitrage opportunities. To turn off mock mode and run in production, add the argument `-p`.
 
 ## Difficulties
 1. The trading fee is the largest obstacle. Most of the exchanges have a 0.25% fee. The profit will be larger if the fee can be lower.
