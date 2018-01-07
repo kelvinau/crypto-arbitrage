@@ -1,14 +1,14 @@
 # Crypto Arbitrage
 ## Introduction
 This is an automatic trading bot using Triangular or Exchange Arbitrages. It reguarly checks and detects arbitrage opportunities, and place orders when a profit can be made. This works on any cryptocurrency pairs with minor configuration.  
-Started with $1000 in October, there were some times that this made about $40/day for a few weeks with Triangular Arbitrage on Bittrex, but as the market is getting very unstable, the profit is hard to outrun the high price fluctuation.
+Started with $1000 in October 2017, there were some times that this made about $40/day for a few weeks with Triangular Arbitrage on Bittrex, but as the market is getting very unstable, the profit is hard to outrun the high price fluctuation.
 
 ## Exchanges
 Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin
 
 ## Setup
 1. `pip install grequests`
-2. Rename or copy `.key_sample` files under `keys` to `.key` file, and add the APIs. E.g. Create a file `bittrex.key` **Make sure you don't push any of your APIs.**
+2. Rename or copy `.key_sample` files under `keys` to `.key` file, and add the APIs. E.g. Create a file `bittrex.key` **Make sure you don't push any of your API keys.**
 3. Modify `arbitrage_config.json` for any other ticker pairs or exchanges
 
 ## Usage
