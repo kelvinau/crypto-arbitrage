@@ -87,6 +87,22 @@ class ExchangeEngine(ExchangeEngineBase):
                                   
         return res_hook    
 
+    '''
+        return USDT in r.parsed
+        {
+            'BTC': 18000    
+        }
+    '''       
+    def get_ticker_lastPrice(self, ticker):
+         return self._send_request('pubticker/{0}'.format(ticker), 'GET', {}, [self.hook_lastPrice(ticker=ticker)])
+
+    def hook_lastPrice(self, *factory_args, **factory_kwargs):
+        def res_hook(r, *r_args, **r_kwargs):
+            json = r.json()
+            r.parsed = {}
+            r.parsed[factory_kwargs['ticker']] = float(json['last_price'])
+                                  
+        return res_hook    
 
     '''
         return in r.parsed
@@ -160,12 +176,15 @@ class ExchangeEngine(ExchangeEngineBase):
     
 if __name__ == "__main__":
     engine = ExchangeEngine()
-    engine.load_key('../.keys/bitfinexkey')
+    engine.load_key('../../keys/bitfinex.key')
     #print engine.get_balance()
-
-    for res in grequests.map([engine.cancel_order('525113932211')]):
-        print res.json()
+    for res in grequests.map([engine.get_ticker_lastPrice('BTCUSD')]):
+        print res.parsed
         pass    
+
+    # for res in grequests.map([engine.cancel_order('525113932211')]):
+    #     print res.json()
+    #     pass    
 
 #     for res in grequests.map([engine.place_order('OMGETH', 'bid', 5, 0.02)]):
 #         print res.json()

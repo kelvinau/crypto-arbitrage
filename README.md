@@ -4,7 +4,7 @@ This is an automatic trading bot using Triangular or Exchange Arbitrages. It reg
 Started with $1000 in October 2017, there were some times that this made about $40/day for a few weeks with Triangular Arbitrage on Bittrex, but as the market is getting very unstable, the profit is hard to outrun the high price fluctuation.
 
 ## Exchanges
-Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin
+Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin (Not maintained anymore due to its extremely low volume)
 
 ## Setup
 1. `pip install grequests`

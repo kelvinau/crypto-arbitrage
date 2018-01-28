@@ -164,7 +164,7 @@ class ExchangeEngine(ExchangeEngineBase):
     
 if __name__ == "__main__":
     engine = ExchangeEngine()
-    engine.load_key('../.keys/bittrexkey')
+    engine.load_key('../../keys/bittrex.key')
     # for res in grequests.map([engine.get_ticker_orderBook_innermost('ETH-OMG')]):
     #     print res.parsed
     #     pass

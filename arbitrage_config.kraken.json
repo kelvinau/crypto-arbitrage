@@ -1,0 +1,28 @@
+{
+    "triangular": {
+        "exchange": "kraken",
+        "keyFile": "keys/kraken.key",
+        "tickerPairA": "XETHXXBT",
+        "tickerPairB": "XETCXXBT",
+        "tickerPairC": "XETCXETH",
+        "tickerA": "XXBT",
+        "tickerB": "XETH",
+        "tickerC": "XETC"
+    },
+    "exchange": {
+        "exchangeA": {
+            "exchange": "bittrex",
+            "keyFile": "keys/bittrex.key",
+            "tickerPair": "BTC-ETH",
+            "tickerA": "BTC",
+            "tickerB": "ETH"        
+        },
+        "exchangeB": {
+            "exchange": "bitstamp",
+            "keyFile": "keys/bitstamp.key",
+            "tickerPair": "ethbtc",
+            "tickerA": "btc",
+            "tickerB": "eth"         
+        }
+    }
+}

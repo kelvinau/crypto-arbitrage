@@ -78,7 +78,7 @@ class ExchangeEngine(ExchangeEngineBase):
     
 if __name__ == "__main__":
     engine = ExchangeEngine()
-    engine.load_key('../.keys/gatecoinkey')
+    engine.load_key('../../keys/gatecoin.key')
     #engine.get_balance()
     print engine.get_ticker_history('BTCHKD', '15m')
     #engine.place_order('BTCHKD', 'bid', 1, 200)

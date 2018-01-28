@@ -80,7 +80,7 @@ class ExchangeEngine(ExchangeEngineBase):
         return res_hook       
 
     def get_ticker_orderBook_innermost(self, ticker): 
-        return self._send_request('public/Depth?pair={0}&count=1'.format('XETCXETH'), 'GET', {}, self.hook_orderBook)  
+        return self._send_request('public/Depth?pair={0}&count=1'.format(ticker), 'GET', {}, self.hook_orderBook)  
 
     def hook_orderBook(self, r, *r_args, **r_kwargs):
         json = r.json()
@@ -97,16 +97,14 @@ class ExchangeEngine(ExchangeEngineBase):
             }
         }
 
-    
     def get_open_order(self):
         return self._send_request('private/OpenOrders', 'POST', {}, self.hook_openOrder)
 
     def hook_openOrder(self, r, *r_args, **r_kwargs):
         json = r.json()
-        print json
-        # r.parsed = []
-        # for order in json['result']:
-        #     r.parsed.append({'orderId': str(order['OrderUuid']), 'created': order['Opened']})
+        r.parsed = []
+        for order in json['result']:
+            r.parsed.append({'orderId': str(order['OrderUuid']), 'created': order['Opened']})
  
     
     def cancel_order(self, orderID):
@@ -126,22 +124,24 @@ class ExchangeEngine(ExchangeEngineBase):
         action = 'buy' if action == 'bid' else 'sell'
         data = {'pair': ticker, 'type': action, 'volume': str(amount), 'price': str(price), 'ordertype': 'limit'}
         return self._send_request('private/AddOrder', 'POST', data)
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    '''
+        return USDT in r.parsed
+        {
+            'BTC': 18000    
+        }
+    '''       
+    def get_ticker_lastPrice(self, ticker):
+         return self._send_request('public/Ticker?pair={0}ZUSD'.format(ticker), 'GET', {}, [self.hook_lastPrice(ticker=ticker)])
+
+    def hook_lastPrice(self, *factory_args, **factory_kwargs):
+        def res_hook(r, *r_args, **r_kwargs):
+            json = r.json()
+            r.parsed = {}
+            r.parsed[factory_kwargs['ticker']] = float(json['result'].itervalues().next()['c'][0])
+                                  
+        return res_hook    
+
     '''
     <time>, <open>, <high>, <low>, <close>, <vwap>, <volume>, <count>
     '''
@@ -159,19 +159,23 @@ class ExchangeEngine(ExchangeEngineBase):
     
 if __name__ == "__main__":
     engine = ExchangeEngine()
-    engine.load_key('../.keys/krakenkey')
+    engine.load_key('../../keys/kraken.key')
     # for res in grequests.map([engine.get_balance(['XXRP'])]):
-    #     print res
+    #     print res.parsed
     #     pass
        
-    # for res in grequests.map([engine.get_ticker_orderBook_innermost(['XETCXETH'])]):
+    # for res in grequests.map([engine.get_ticker_orderBook_innermost('XEOSZUSD')]):
     #     print res.parsed
     #     pass     
 
-    for res in grequests.map([engine.get_open_order()]):
-        print res
-        pass  
-       
+    # for res in grequests.map([engine.get_open_order()]):
+    #     print res
+    #     pass 
+
+    for res in grequests.map([engine.get_ticker_lastPrice('XXBT')]):
+        print res.parsed
+        pass    
+
     # for res in grequests.map([engine.place_order('ETCETH', 'ask', 1.5, 0.075)]):
     #     print res
     #     pass     

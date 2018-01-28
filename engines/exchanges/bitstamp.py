@@ -80,6 +80,23 @@ class ExchangeEngine(ExchangeEngineBase):
         return res_hook    
 
     '''
+        return USDT in r.parsed
+        {
+            'BTC': 18000    
+        }
+    '''       
+    def get_ticker_lastPrice(self, ticker):
+         return self._send_request('ticker/{0}/'.format(ticker), 'GET', {}, [self.hook_lastPrice(ticker=ticker)])
+
+    def hook_lastPrice(self, *factory_args, **factory_kwargs):
+        def res_hook(r, *r_args, **r_kwargs):
+            json = r.json()
+            r.parsed = {}
+            r.parsed[factory_kwargs['ticker']] = float(json['last'])
+                                  
+        return res_hook    
+
+    '''
         return in r.parsed
         {
             'bid': {
@@ -157,10 +174,13 @@ class ExchangeEngine(ExchangeEngineBase):
     
 if __name__ == "__main__":
     engine = ExchangeEngine()
-    engine.load_key('../.keys/bitstampkey')
+    engine.load_key('../../keys/bitstamp.key')
     # for res in grequests.map([engine.get_balance(['btc', 'eth'])]):
     #     print res.parsed
     #     pass    
+    for res in grequests.map([engine.get_ticker_lastPrice('btcusd')]):
+        print res.parsed
+    pass    
     # for res in grequests.map([engine.get_ticker_orderBook_innermost('ethbtc')]):
     #     print res.parsed
     #     pass
@@ -175,7 +195,7 @@ if __name__ == "__main__":
     #     print res.json()
     #     #print res.parsed
     #     pass       
-    for res in grequests.map([engine.withdraw('eth', 500, '0x8a1f31435aa39853d2e810d2aad1349455a5f13a')]):
-        print res.json()
-        #print res.parsed
-        pass       
+    # for res in grequests.map([engine.withdraw('eth', 500, '0xC257274276a4E539741Ca11b590B9447B26A8051')]):
+    #     print res.json()
+    #     #print res.parsed
+    #     pass       
