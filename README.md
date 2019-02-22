@@ -7,9 +7,9 @@ Started with $1000 in October 2017, there were some times that this made about $
 Bittrex, Bitfinex, Bitstamp, Kraken, Gatecoin (Not maintained anymore due to its extremely low volume)
 
 ## Setup
-1. Install Python 2 at here https://www.python.org/downloads/ if you don't have it. **This will not work with Python 3.**
+1. Install Python 2 at here https://www.python.org/downloads/ if necessary. **This bot will not work with Python 3.**
 2. `pip install grequests`
-3. Rename or copy `.key_sample` files under `keys` to `.key` file, and add the APIs. E.g. Create a file `bittrex.key`. **Make sure you don't push any of your API keys.**
+3. Rename or copy `.key_sample` files under `keys` to `.key` file, and add the APIs. E.g. Create a file `bittrex.key`. **Make sure not to push any API keys or this `.key` file.**
 4. Modify `arbitrage_config.json` for any other ticker pairs or exchanges
 
 ## Usage
