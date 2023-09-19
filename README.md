@@ -19,7 +19,7 @@ Link to RTB details and backtesting report: https://kelvinausoftware.com/realist
 Link to RTB product: https://kelvinausoftware.com/products/
 
 _+2056% backtest return on EURUSD in 2022_
-![image](https://kelvinau.github.io/crypto-arbitrage/reference/rtb_aggressive_model.gif)
+![image](https://kelvinau.github.io/crypto-arbitrage/reference/rtb_aggressive_model.gif?1)
 
 ---
 
