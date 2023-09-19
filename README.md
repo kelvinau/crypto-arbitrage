@@ -2,13 +2,24 @@
 
 Updated on Sep 16, 2023:
 
-I have moved on to develop other trading bots besides arbitrage. The best bot, Realistic Trading Bot (RTB), achieved a +2056% return using an aggressive model, while using the conservative model yielded a +418% return. The bots were backtested with data from 2019 to 2022.
+I have moved on to develop other trading bots besides arbitrage. The best bot, Realistic Trading Bot (RTB), achieved a +2056% return using an aggressive model, while using the conservative model yielded a +418% return. The bots were backtested with data from 2019 to 2022. I have created a subscription service that provides trading signals for popular pairs. I will continue to add support for new pairs when there are enough requests.
 
-![image](https://kelvinau.github.io/crypto-arbitrage/reference/rtb_aggressive_model.gif)
+Currently the subscription service supports:
 
-Link to Realistic Trading Bot (RTB) product: https://kelvinausoftware.com/products/
+- BTCUSD
+- ETHUSD
+- EURUSD
+- GBPJPY
+- XAUUSD
+
+Link to RTB Trading Signal subscription: https://kelvinausoftware.com/rtb-trading-signal/
 
 Link to RTB details and backtesting report: https://kelvinausoftware.com/realistic-trading-bot-rbt/
+
+Link to RTB product: https://kelvinausoftware.com/products/
+
+_+2056% backtest return on EURUSD in 2022_
+![image](https://kelvinau.github.io/crypto-arbitrage/reference/rtb_aggressive_model.gif)
 
 ---
 
