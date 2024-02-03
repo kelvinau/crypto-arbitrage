@@ -16,7 +16,7 @@ Link to RTB Trading Signal subscription: [https://kelvinausoftware.com/rtb-tradi
 
 Link to RTB details and backtesting report: [https://kelvinausoftware.com/realistic-trading-bot-rbt/](https://kelvinausoftware.com/realistic-trading-bot-rbt/)
 
-Link to Professional Trader Course: [https://kelvinausoftware.com/professional-trader-course/](https://kelvinausoftware.com/professional-trader-course/) (Beginnger-friendly and no experience required. I will also expain RTB algorithm in this course.)
+Link to Professional Trader Course: [https://kelvinausoftware.com/professional-trader-course/](https://kelvinausoftware.com/professional-trader-course/) (Beginner-friendly and no experience required. I will also expain RTB algorithm in this course.)
 
 _+2056% backtest return on EURUSD in 2022_
 ![image](https://kelvinau.github.io/crypto-arbitrage/reference/rtb_aggressive_model.gif?1)
