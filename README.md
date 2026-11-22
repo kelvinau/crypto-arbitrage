@@ -1,4 +1,17 @@
 # Crypto Arbitrage
+
+Updated on Nov 22, 2026:
+
+Since this arbitrage bot, I have kept improving trading automation and market analysis, and extended what I learned here beyond crypto to US stocks and options as well. I have now started to publish the analysis and trades, wins and losses, on [ReviewLoop](https://reviewloop.dev/). The name comes from how it works: AI keeps reviewing the rules in a loop against historical and live market data, learns from the results and makes new rules on its own, and each new rule is reviewed before it goes into use. Every trade follows these rules. They are fundamental and technical, backtested on over 20 years of daily prices from more than 3,400 US stocks. The fundamental side is the Stock Health Score, which reads each company's financial numbers and filings. The technical side is the chart analysis. I have built AI Analyzer to bring both sides, with all their rules and data, together in one tool. In its first month, the portfolio is up +323.8%.
+
+[![ReviewLoop portfolio performance](reference/reviewloop-performance.png)](https://reviewloop.dev/)
+
+Most of it is free to read. Members see the live trades.
+
+The original arbitrage bot is below if you want to look at the code.
+
+---
+
 ## Introduction
 This is an automatic trading bot using Triangular or Exchange Arbitrages. It reguarly checks and detects arbitrage opportunities, and place orders when a profit can be made. This works on any cryptocurrency pairs with minor configuration.  
 Started with $1000 in October 2017, there were some times that this made about $40/day for a few weeks with Triangular Arbitrage on Bittrex, but as the market is getting very unstable, the profit is hard to outrun the high price fluctuation.
